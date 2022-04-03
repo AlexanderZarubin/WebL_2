@@ -18,13 +18,49 @@ console.log(number3 + ' = ' + absValue(number3));
 function isPalindrome(a){   
     for(let j = 0 ; j <= a.length/2 ; j++){
         if (a[j] !== a[a.length-(j+1)]){ 
-            return false
+            return false;
         }
     }
-    return true
+    return true;
 }   
 let word1 = "довод";
 let word2 = "кружка";
 console.log(word1 + ' = ' + isPalindrome(word1));
 console.log(word2 + ' = ' + isPalindrome(word2));
+
 // Task3
+function matrixAddition(matrix1, matrix2){
+    let matrixSum = [[],[]];
+    if(matrix1.length == matrix2.length){ 
+        for (let i = 0; i < matrix1.length; i++){
+            for (let j = 0; j < matrix1.length; j++){
+                matrixSum[i][j] = matrix1[i][j] + matrix2[i][j];
+            }   
+        }
+        for (let i = 0; i < matrixSum.length; i++){
+            for (let j = 0; j < matrixSum.length; j++){
+                console.log(matrixSum[i][j] + "\t" + matrixSum[i][j+1]);
+                break;
+            }   
+        }
+
+    }else{
+        return "Операция невыполнима";
+    }
+
+}
+console.log(matrixAddition([[9,2],], [[9,8],[3,6]]));
+console.log(matrixAddition([[9,2],[3,5]], [[9,8],[3,6]]));
+
+//Task4
+
+let student = {
+    group: "201-323",
+    last_name: "Зарубин",
+    first_name: "Александр"
+};
+console.log(`Список свойств: ${Object.keys(student)}`);
+console.log(`Студент ${student.first_name} ${student.last_name} учится в ${student.group} группе`);
+
+//Task5
+
