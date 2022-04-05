@@ -64,3 +64,39 @@ console.log(`Студент ${student.first_name} ${student.last_name} учит�
 
 //Task5
 
+let possition = 0;
+let ItemWidth = 300;
+let ItemsShowed = 3;
+let ItemsForScroll = 2;
+let AmountOfItems = 10;
+const sliderline = document.querySelector('.slider_pictures');
+const btnNext = document.querySelector('.btn_next');
+const btnPrev = document.querySelector('.btn_prev');
+
+document.querySelector('.btn_next').addEventListener('click',function(){
+    possition -= ItemWidth*ItemsForScroll;
+
+    if(possition <= -(((Math.floor(AmountOfItems/ItemsShowed))*ItemsForScroll)*ItemWidth)){
+        possition = -(AmountOfItems-ItemsShowed)*ItemWidth;
+    }
+
+    sliderline.style.left = possition + "px";
+    checkButtons();
+});
+document.querySelector('.btn_prev').addEventListener('click',function(){
+    if(possition == -1*ItemWidth){
+        possition = 0;
+    }
+    else{
+        possition += ItemWidth*ItemsForScroll;
+    }
+    sliderline.style.left = possition + "px";
+    checkButtons();
+});
+
+const checkButtons = () =>{
+    btnPrev.disabled = possition == 0;
+    btnNext.disabled = possition == -(AmountOfItems-ItemsShowed)*ItemWidth;
+
+}
+checkButtons();
